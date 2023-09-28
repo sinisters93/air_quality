@@ -1,5 +1,14 @@
+
 # -*- coding: utf-8 -*-
 """
+Sample Description: 
+
+This Python script is designed to read data from a CSV file ("plotadnan_new.csv"),
+perform data preprocessing, and create a scatter plot to visualize the relationship between
+two variables: "Average of Ratio" and "Average of O₃ concentration" over time. The script also
+includes a color-coded time axis to represent the date of each data point. The resulting plot
+is saved as "sample.png".
+
 Created on Mon Feb 15 22:20:49 2021
 
 @author: Dell
