@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 """
+This script reads geographical shapefile data of Uttar Pradesh administrative regions,
+along with air quality data for December 2018, and creates a contour plot to visualize
+PM2.5 concentration levels. It also highlights the Agra district on the map. 
+
 Created on Thu Feb 11 22:45:35 2021
 
 @author: hp
