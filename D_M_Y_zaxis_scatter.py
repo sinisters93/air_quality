@@ -1,7 +1,6 @@
 
 # -*- coding: utf-8 -*-
-"""
-Sample Description: 
+""" 
 
 This Python script is designed to read data from a CSV file ("plotadnan_new.csv"),
 perform data preprocessing, and create a scatter plot to visualize the relationship between
