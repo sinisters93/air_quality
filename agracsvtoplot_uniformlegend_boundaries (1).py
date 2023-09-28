@@ -2,6 +2,10 @@
 """
 Created on Thu Feb 11 22:45:35 2021
 
+This script reads geographic and pollution data, and generates a contour plot of CO levels
+over a specific region, highlighting the Agra District in Uttar Pradesh, India. It also
+includes additional geographical annotations and a colorbar for the pollution levels.
+
 @author: hp
 """
 
