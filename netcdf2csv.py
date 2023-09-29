@@ -1,7 +1,10 @@
-# -*-" coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
-Created on Thu Mar  4 12:59:16 2021
+This script extracts data from a NetCDF file containing PM2.5 emissions data and
+saves it in a CSV file. It focuses on a specific latitude and longitude range,
+calculates emissions, and creates a DataFrame for the selected data.
 
+Created on Thu Mar 4 12:59:16 2021
 @author: hp
 """
 
@@ -28,7 +31,6 @@ lon_new = lon[769:791]
 lon_new = lon_new.tolist()
 
 lon_new = [round(num, 2) for num in lon_new]
-
 
 Lat = []
 Lon = []
