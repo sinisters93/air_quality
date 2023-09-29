@@ -1,15 +1,18 @@
 """
-This Python script demonstrates the process of loading and manipulating data from a NetCDF file, specifically the ECLIPSE_V6b_CLE_base_NOx.nc dataset. It uses libraries such as numpy, netCDF4, csv, pandas, and matplotlib to perform the following tasks:
+This Python script imports necessary libraries, reads data from a NetCDF file, and performs calculations on emissions data.
 
-1. Import necessary libraries: Import numpy, netCDF4, csv, pandas, and matplotlib to work with data, NetCDF files, and visualize results.
+It starts by importing the required libraries: numpy, netCDF4, csv, pandas, and matplotlib.
 
-2. Open the NetCDF file: Open the ECLIPSE_V6b_CLE_base_NOx.nc file located at "C:/Users/Lenovo/Downloads/ECLIPSE_V6b_CLE_base_NOx.nc" in read mode using the netCDF4 library.
+Then, it opens a NetCDF file named 'ECLIPSE_V6b_CLE_base_NOx.nc' located at 'C:/Users/Lenovo/Downloads/'. 
+It extracts time, emissions data ('emis_all'), latitude, and longitude from the NetCDF file.
 
-3. Extract data: Retrieve data from the NetCDF file for variables 'time,' 'emis_all,' 'lat,' and 'lon' and store them in respective variables.
+The script calculates a specific value 'emi_del' from the emissions data and prints it.
 
-4. Data manipulation: Perform various operations on the data, including extracting a specific element from the 'emis_all' array, calculating the sum of a subset of 'emis_all,' and printing the results.
+Next, it extracts a subset of data 'emi_del_out' from a portion of the emissions data.
 
-Feel free to adapt and extend this code for your specific analysis or visualization needs.
+Finally, it calculates the sum of values in 'emi_del_out' and prints the result.
+
+This script is designed for data analysis and manipulation of emissions data from the specified NetCDF file.
 """
 
 import numpy as np
