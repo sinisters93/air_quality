@@ -1,4 +1,15 @@
+"""
+This Python script extracts data from NetCDF files and processes it to create a DataFrame, which is then saved as a CSV file.
 
+The script performs the following steps:
+1. Imports necessary libraries: netCDF4, numpy, and pandas.
+2. Defines a function 'wrfchemi2arr' that reads data from specific NetCDF files, extracts a variable, and processes it.
+3. Calls the 'wrfchemi2arr' function for a list of variables ('var_list') and stores the processed data in 'Data_var'.
+4. Combines the data from 'Data_var' and calculates the sum along the specified axis.
+5. Creates a DataFrame from the combined data and saves it as 'egu_premonsoon_ec_.csv'.
+
+Note: Ensure that you have the required NetCDF files in the same directory or provide the correct file paths.
+"""
 from netCDF4 import Dataset
 import numpy as np
 import pandas as pd
@@ -41,23 +52,16 @@ def wrfchemi2arr(var):
     final_data_arr = arrays.mean(axis = 0)
     return final_data_arr
     
-
 #####
 
 var_list = ["eci","ecj"]
-
 Data_var = []
-
 
 for i in var_list:
     arr = wrfchemi2arr(i)
     Data_var.append(arr)
-    
-array_tuple = tuple(Data_var)
-	
+array_tuple = tuple(Data_var)	
 arrays = np.vstack(array_tuple)
 final_data_arr = arrays.sum(axis = 0)
 df = pd.DataFrame(final_data_arr)
 df.to_csv("egu_premonsoon_ec_.csv",index = False)
-
-    
