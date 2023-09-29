@@ -1,28 +1,15 @@
 # -*- coding: utf-8 -*-
+"""
+WRF Data Processing Script
 
+This script processes WRF (Weather Research and Forecasting) model output data to create an emissions table in CSV format.
+The table includes data for the variable 'E_XYL' over a specified time period. It extracts data from multiple WRF output files
+corresponding to different months and years and aggregates them into an annual dataset.
+
+Created on Sun Apr 4 11:33:41 2021
+Author: Dell
 """
 
-Created on Sun Apr  4 11:33:41 2021
-
-
-
-@author: Dell
-
-"""
-
-
-
-# -*- coding: utf-8 -*-
-
-"""
-
-Created on Sun Apr  4 11:14:50 2021
-
-
-
-@author: Dell
-
-"""
 
 #! /usr/bin/python
 
