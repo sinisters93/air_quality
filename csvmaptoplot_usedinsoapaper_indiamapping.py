@@ -2,7 +2,6 @@
 """
 This Python script reads a shapefile, processes its data, and generates a contour plot of annual VOC (Volatile Organic Compounds) emission rates.
 It also superimposes the geographical coordinates of emission points and labels Agra District.
-
 Created on Thu Feb 11 22:45:35 2021
 @author: hp
 """
@@ -11,10 +10,8 @@ from netCDF4 import Dataset
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-
 import shapefile as shp
 import seaborn as sns
-
 
 shp_path = "C:/Users/user/Desktop/agra/Admin2.shp"
 sf = shp.Reader(shp_path)
@@ -85,44 +82,25 @@ lon1 = []
 for i in st_nm:
     
     df_agra =  df1[df1.ST_NM == i]
-
-
     lst = df_agra["coords"].to_list()
-
-
-    
     for j in range(len(lst[0])):
         lon1.append(lst[0][j][0])
         lat1.append(lst[0][j][1])
 
-
-    
 #lon1 = [x for x in lon1] ##+ right shift     ##left right shift
-
 #lat1 = [x+0 for x in lat1] ##+ upper shift # up down shift
-
-#plt.title(i)
-  
-    
+#plt.title(i)    
 #x_lon_agra = np.zeros((len(shape_ex_agra.points),1))
 #y_lat_agra = np.zeros((len(shape_ex_agra.points),1))
 #plt.plot(x_lon_agra,y_lat_agra,color = "k")
 #plot_map(sf)
-
 #comuna_agra = 'Agra'
 #com_id_agra  =df1
 #df_agra =  df1[df1.NAME == "Agra"]
-
 #shape_ex_agra = sf.shape(com_id_agra)
-
 #x_lon_agra = np.zeros((len(shape_ex_agra.points),1))
 #y_lat_agra = np.zeros((len(shape_ex_agra.points),1))
-
-
 #for ip in range(len(shape_ex_agra.points)):
-
-
-
 
 file = "annual_soa_fortable_.csv"
 lat = np.linspace(5,max(lat1),75) # 35.7
@@ -130,19 +108,12 @@ lon = np.linspace(61,max(lon1),75) #95.3
 df = pd.read_csv(file)
 #data = df[:,1:]
 data = df.values
-
-
 X,Y = np.meshgrid(lon,lat)
-
-
-
 sns.set(context="notebook", style="darkgrid",
         rc={"axes.axisbelow": False})
 fig, ax = plt.subplots(figsize=(5,8),dpi = 300)
 
-
 #contour = plt.contour(X, Y, data,colors="white")
-
 #plt.clabel(contour, colors = 'black', fmt = '%2.f', fontsize=8)
 #plt.grid(True)
 #plt.grid(True)
@@ -159,8 +130,6 @@ plt.grid(False)
 #plt.text(x0_agra+0.6, y0_agra-0.05, "Agra District", fontsize=22)
 #plt.text(x0_agra-0.475, y0_agra+0.1, "Agra", fontsize=22)
 #plt.text(78,27,".",fontsize = 80) ##Point at lat lon
-
-
 
 cbar = plt.colorbar(co_plot,extend='both',orientation = 'horizontal',pad = 0.1,aspect = 50)
 cbar.set_label('Annual VOC Emission Rate(ton/km\u00b2) [2018] ')
