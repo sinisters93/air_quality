@@ -1,3 +1,17 @@
+"""
+This Python script extracts specific atmospheric data from NetCDF files representing different time periods and levels, and then processes and combines this data to create a pandas DataFrame. The resulting DataFrame is subsequently saved as a CSV file named 'egu_winter_soa_.csv'.
+
+The script follows these main steps:
+1. Imports necessary libraries, including netCDF4, NumPy, and pandas.
+2. Defines a function, 'wrfchemi2arr', to extract and process data from multiple NetCDF files and return an aggregated array.
+3. Defines a list of variables, 'var_list', that represent the atmospheric data of interest.
+4. Loops through each variable in 'var_list', extracts the data using the 'wrfchemi2arr' function, and appends it to 'Data_var'.
+5. Combines the data from 'Data_var' into a single NumPy array.
+6. Calculates the sum of the data along one axis and converts it into a pandas DataFrame.
+7. Saves the DataFrame as a CSV file named 'egu_winter_soa_.csv'.
+
+Make sure to modify the 'var_list' and file names accordingly for your specific data extraction needs.
+"""
 from netCDF4 import Dataset
 import numpy as np
 import pandas as pd
@@ -36,13 +50,10 @@ def wrfchemi2arr(var):
     final_data_arr = arrays.mean(axis = 0)
     return final_data_arr
     
-
 #####
-
 var_list = ["orgalk1i","orgalk1j","orgaro1i","orgaro1j","orgaro2i","orgaro2j","orgba1i","orgba1j","orgba2i","orgba2j","orgba3i","orgba3j","orgba4i","orgba4j","orgole1i","orgole1j"]
 
 Data_var = []
-
 
 for i in var_list:
     arr = wrfchemi2arr(i)
