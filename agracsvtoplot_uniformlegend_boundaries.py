@@ -5,7 +5,6 @@ along with air quality data for December 2018, and creates a contour plot to vis
 PM2.5 concentration levels. It also highlights the Agra district on the map. 
 
 Created on Thu Feb 11 22:45:35 2021
-
 @author: hp
 """
 
@@ -13,12 +12,8 @@ from netCDF4 import Dataset
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-
 import shapefile as shp
 import seaborn as sns
-
-
-
 
 shp_path = "C:/Users/hp/Desktop/agra/uttar_pradesh_administrative.shp"
 sf = shp.Reader(shp_path)
@@ -69,20 +64,6 @@ for ip in range(len(shape_ex_agra.points)):
 x0_agra = np.mean(x_lon_agra)
 y0_agra = np.mean(y_lat_agra)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 file = "1_31dec.csv"
 lat = np.linspace(25.7,29.2,50)
 lon = np.linspace(75.8,79.7,50)
@@ -90,24 +71,11 @@ df = pd.read_csv(file)
 #data = df[:,1:]
 data = df.values
 
-
 X,Y = np.meshgrid(lon,lat)
-
-
-
-
-
-
-
-
-
-
-
 
 sns.set(context="notebook", style="darkgrid",
         rc={"axes.axisbelow": False})
 fig, ax = plt.subplots(figsize=(10,10),dpi = 300)
-
 
 contour = plt.contour(X, Y, data,colors="white")
 
