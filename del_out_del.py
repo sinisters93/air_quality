@@ -1,3 +1,17 @@
+"""
+This Python script demonstrates the process of loading and manipulating data from a NetCDF file, specifically the ECLIPSE_V6b_CLE_base_NOx.nc dataset. It uses libraries such as numpy, netCDF4, csv, pandas, and matplotlib to perform the following tasks:
+
+1. Import necessary libraries: Import numpy, netCDF4, csv, pandas, and matplotlib to work with data, NetCDF files, and visualize results.
+
+2. Open the NetCDF file: Open the ECLIPSE_V6b_CLE_base_NOx.nc file located at "C:/Users/Lenovo/Downloads/ECLIPSE_V6b_CLE_base_NOx.nc" in read mode using the netCDF4 library.
+
+3. Extract data: Retrieve data from the NetCDF file for variables 'time,' 'emis_all,' 'lat,' and 'lon' and store them in respective variables.
+
+4. Data manipulation: Perform various operations on the data, including extracting a specific element from the 'emis_all' array, calculating the sum of a subset of 'emis_all,' and printing the results.
+
+Feel free to adapt and extend this code for your specific analysis or visualization needs.
+"""
+
 import numpy as np
 from netCDF4 import Dataset
 import csv
