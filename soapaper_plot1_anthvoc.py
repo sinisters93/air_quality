@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Apr  3 11:29:03 2021
+Converts WRF-Chem chemical species data from multiple netCDF files into a single DataFrame and exports it to a CSV file.
 
+This script reads WRF-Chem chemical species data from multiple netCDF files, combines them into a single array, and then creates a DataFrame. 
+The resulting DataFrame is exported to a CSV file named 'anthvoc_orgj.csv'. The script primarily uses the 'netCDF4' library for reading data and 'numpy' 
+and 'pandas' for data manipulation.
+
+Created on Sat Apr 3 11:29:03 2021
 @author: Dell
 """
 
@@ -38,26 +43,20 @@ def wrfchemi2arr(var):
 
         Data.append(data_o3_nc2)
         
-    array_tuple = (Data[0],Data[1],Data[2],Data[3],Data[4],Data[5],Data[6],
-                   Data[7],Data[8],Data[9],Data[10],Data[11])
+    array_tuple = (Data[0],Data[1],Data[2],Data[3],Data[4],Data[5],Data[6],Data[7],Data[8],Data[9],Data[10],Data[11])
     arrays = np.vstack(array_tuple)
     final_data_arr = arrays.sum(axis = 0)
     return final_data_arr
     
-
 #####
-
 var_list = ["E_ORGJ"]
-
 Data_var = []
-
 
 for i in var_list:
     arr = wrfchemi2arr(i)
     Data_var.append(arr)
     
-array_tuple = tuple(Data_var)
-	
+array_tuple = tuple(Data_var)	
 arrays = np.vstack(array_tuple)
 final_data_arr = arrays.sum(axis = 0)
 df = pd.DataFrame(final_data_arr)
