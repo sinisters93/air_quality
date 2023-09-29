@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 """
+WRF Data Processing Script
+
+This script extracts and processes data from WRF (Weather Research and Forecasting) model output files.
+It calculates the average values of specified variables for different time periods and stores the results
+in a NumPy array. The processed data can be used for further analysis or visualization.
+
 Created on Sun Apr  4 11:03:39 2021
-
-@author: Dell
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Apr  2 16:49:58 2021
-
-@author: Dell
+Author: Dell
 """
 #! /usr/bin/python
 
