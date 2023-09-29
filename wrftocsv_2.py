@@ -1,26 +1,28 @@
 # -*- coding: utf-8 -*-
+"""
+WRF Data Extraction and Conversion to CSV
+
+This Python script is designed to extract specific variable data from WRF (Weather Research and Forecasting) model output files in netCDF format and convert it to a CSV file. The extracted data pertains to atmospheric ozone concentration (O3) and is processed for multiple time periods.
+
+The script performs the following tasks:
+1. Reads WRF model output files for various time periods.
+2. Extracts ozone concentration data for a specific grid point.
+3. Appends the extracted data into a single dataset.
+4. Converts the dataset to a CSV file named "data.csv."
+
+Dependencies:
+- netCDF4 library for reading netCDF files
+- numpy for numerical operations
+- pandas for data manipulation and CSV export
+
+Note: Make sure to adjust file paths, variable names, and grid point coordinates as per your specific WRF model output and requirements.
 
 """
-
-Created on Thu Feb 11 23:43:17 2021
-
-
-
-@author: hp
-
-"""
-
-
-
 #! /usr/bin/python
-
-
 
 from netCDF4 import Dataset
 import numpy as np
 import pandas as pd
-
-
 
 def wrf2var_csv(var_list):
     final_data = []
@@ -69,7 +71,6 @@ def wrf2var_csv(var_list):
         data_slice4 = data_slice4.tolist()
         Data.extend(data_slice4)
     
-    
         final_data.append(Data)
         
     final_data_arr = np.array(final_data)
@@ -79,9 +80,7 @@ def wrf2var_csv(var_list):
     df.to_csv("data.csv",index = False)
     return df
     
-
 #####
 
 var_list = ["o3"]
-
 df = wrf2var_csv(var_list)
