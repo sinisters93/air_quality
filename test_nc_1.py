@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Dec  3 13:05:50 2020
+Converts NetCDF data to CSV format.
+
+This script reads a NetCDF file, extracts the specified variable, and converts it into a CSV file.
+It also includes latitude and longitude information for each data point.
+
+Created on Thu Dec 3 13:05:50 2020
 
 @author: Dell
 """
@@ -9,8 +14,6 @@ import numpy as np
 from netCDF4 import Dataset
 import csv
 import pandas as pd
-
-
 
 def netcdf2csv(filepath):
     nc1 = Dataset(filepath, 'r+')
@@ -25,7 +28,6 @@ def netcdf2csv(filepath):
 
     lat_len = len(lat)
     lon_len = len(lon)
-
 
     out_arr = np.zeros([lat_len,lon_len])
     a = np.mean(iso, axis = 0, out = out_arr) 
