@@ -20,14 +20,8 @@ nc1 = Dataset(file_nc, 'r+')
 ##extract variable from file
 data = nc1.variables["PM2_5_DRY"][:]
 
-
-
-
 ##slicing in n-dimensional array
 data_slice = data[1848:2587,0,:,:] ### time, layer, lat, lon
-
 data_mean = data_slice.mean(axis =0)
-
-
 df = pd.DataFrame(data_mean)
 df.to_csv("1_31dec.csv",index=False)
