@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Feb 11 22:45:35 2021
+This Python script reads a shapefile, processes its data, and generates a contour plot of annual VOC (Volatile Organic Compounds) emission rates.
+It also superimposes the geographical coordinates of emission points and labels Agra District.
 
+Created on Thu Feb 11 22:45:35 2021
 @author: hp
 """
 
